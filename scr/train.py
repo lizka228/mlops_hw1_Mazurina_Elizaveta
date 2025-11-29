@@ -38,7 +38,7 @@ def main():
 
         y_pred = model.predict(X_test)
         acc = accuracy_score(y_test, y_pred)
-        f1 = f1_score(y_test, y_pred)
+        f1 = f1_score(y_test, y_pred, average="macro")
 
         # Логирование параметров и метрик
         mlflow.log_param({
