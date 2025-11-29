@@ -40,16 +40,13 @@ def main():
         acc = accuracy_score(y_test, y_pred)
         f1 = f1_score(y_test, y_pred, average="macro")
 
-        # Логирование параметров и метрик
-        mlflow.log_param({
-            "n_estimators": params["train"]["n_estimators"],
-            "random_state": params["train"]["random_state"]
-            })
+        # Логирование параметров
+        mlflow.log_param("n_estimators", params["train"]["n_estimators"])
+        mlflow.log_param("random_state", params["train"]["random_state"])
 
-        mlflow.log_metric({
-            "accuracy": acc,
-            "f1_score": f1
-            })
+        # Логирование метрик
+        mlflow.log_metric("accuracy", acc)
+        mlflow.log_metric("f1_score", f1)
 
         mlflow.sklearn.log_model(model, "model")
 
