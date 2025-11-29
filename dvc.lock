@@ -1,0 +1,44 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python scr/prepare.py
+    deps:
+    - path: data/raw/wine.csv
+      hash: md5
+      md5: e6dccd29b15c08636f50bd2c0fd80a6a
+      size: 12440
+    - path: params.yaml
+      hash: md5
+      md5: 964712db46315152481ebce20a5d8e0f
+      size: 138
+    - path: scr/prepare.py
+      hash: md5
+      md5: 68b1bb4ec1ff524cd347b977f9fb5051
+      size: 1017
+    outs:
+    - path: data/prepared
+      hash: md5
+      md5: 86a873cb67d91f8703f63a52bea6a372.dir
+      size: 12798
+      nfiles: 4
+  train:
+    cmd: python scr/train.py
+    deps:
+    - path: data/prepared
+      hash: md5
+      md5: 86a873cb67d91f8703f63a52bea6a372.dir
+      size: 12798
+      nfiles: 4
+    - path: params.yaml
+      hash: md5
+      md5: 964712db46315152481ebce20a5d8e0f
+      size: 138
+    - path: scr/train.py
+      hash: md5
+      md5: f1b6cd09e10f16abeb6c9ca1eba63a01
+      size: 1958
+    outs:
+    - path: models/model.pkl
+      hash: md5
+      md5: e3010d34fe022504e53033ab19344998
+      size: 42753
