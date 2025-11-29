@@ -8,13 +8,15 @@ stages:
             - params.yaml
         outs:
             - data/prepared
+                cache: false
 
     train:
         cmd: python scr/train.py
         deps:
-          - scr/train.py
-          - data/prepared
-          - params.yaml
+            - scr/train.py
+            - data/prepared
+            - params.yaml
         outs:
-          - models/model.pkl
+            - models/model.pkl
+                cache: false
 
