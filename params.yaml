@@ -1,0 +1,9 @@
+
+prepare:
+    test_size: 0.2
+    random_state: 42
+
+train:
+    data_path: data/prepared
+    n_estimators: 20
+    random_state: 42
