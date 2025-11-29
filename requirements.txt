@@ -1,6 +1,5 @@
 
 dvc
-os
 mlflow
 pandas==2.3.3
 scikit-learn==1.7.2
