@@ -54,7 +54,7 @@ def main():
         os.makedirs("models", exist_ok=True)
         joblib.dump(model, "models/model.pkl")
         print("Сохранено в models/model.pkl")
-        mlflow.log_artifact("model.pkl")
+        mlflow.log_artifact("models/model.pkl")
 
 
 
