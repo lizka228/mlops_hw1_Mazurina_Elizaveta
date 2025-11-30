@@ -7,8 +7,6 @@ import joblib, os
 import mlflow
 import mlflow.sklearn
 
-mlflow.set_tracking_uri("http://localhost:5000")
-
 def load_params():
     with open("params.yaml", "r") as f:
         return yaml.safe_load(f)
@@ -30,6 +28,7 @@ def main():
 
     X_train, y_train, X_test, y_test = load_data(params["train"]["data_path"])
 
+    mlflow.set_tracking_uri("http://localhost:5000")
     mlflow.set_experiment("mlops_hw1_wine")
 
     with mlflow.start_run():
