@@ -7,6 +7,7 @@ import joblib, os
 import mlflow
 import mlflow.sklearn
 
+mlflow.set_tracking_uri("http://localhost:5000")
 
 def load_params():
     with open("params.yaml", "r") as f:
