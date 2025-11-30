@@ -48,14 +48,14 @@ def main():
         mlflow.log_metric("accuracy", acc)
         mlflow.log_metric("f1_score", f1)
 
-        mlflow.sklearn.log_model(model, "model")
-
         print("Эксперимент завершён и записан в MLflow")
         print(f"Accuracy: {acc:.4f}")
 
+        mlflow.log_artifact("model.pkl")
         os.makedirs("models", exist_ok=True)
         joblib.dump(model, "models/model.pkl")
         print("Сохранено в models/model.pkl")
+
 
 
 if __name__ == "__main__":
