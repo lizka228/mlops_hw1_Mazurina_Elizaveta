@@ -29,7 +29,6 @@ def main():
 
     X_train, y_train, X_test, y_test = load_data(params["train"]["data_path"])
 
-    mlflow.set_tracking_uri("sqlite:///mlflow.db")
     mlflow.set_experiment("mlops_hw1_wine")
 
     with mlflow.start_run():
