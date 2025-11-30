@@ -51,10 +51,10 @@ def main():
         print("Эксперимент завершён и записан в MLflow")
         print(f"Accuracy: {acc:.4f}")
 
-        mlflow.log_artifact("model.pkl")
         os.makedirs("models", exist_ok=True)
         joblib.dump(model, "models/model.pkl")
         print("Сохранено в models/model.pkl")
+        mlflow.log_artifact("model.pkl")
 
 
 
